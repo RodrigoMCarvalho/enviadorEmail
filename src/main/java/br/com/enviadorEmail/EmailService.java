@@ -1,5 +1,6 @@
 package br.com.enviadorEmail;
 
+import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
@@ -13,8 +14,8 @@ public class EmailService {
 		try {
 			Email email = new SimpleEmail();
 			email.setHostName("smtp.googlemail.com");
-			email.setSmtpPort(465);
-			email.setAuthentication("javarodrigo9@gmail.com", "senha");
+			email.setSmtpPort(587);
+			email.setAuthenticator(new DefaultAuthenticator("javarodrigo9@gmail.com", "senha"));
 			email.setSSLOnConnect(true);
 			
 			email.setFrom("javarodrigo9@gmail.com");
